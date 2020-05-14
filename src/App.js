@@ -8,6 +8,7 @@ function App() {
       <TodoItem />
       <TodoItem />
       <TodoItem />
+      <TodoItem />
     </div>
   );
 }
