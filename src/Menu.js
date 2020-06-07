@@ -1,20 +1,24 @@
 import React, {Component} from "react"
-import {withToggler} from "./HOCs/withToggler"
+import Toggler from "./Toggler"
 
 function Menu(props) {
-        return (
-            <div>
-                <button onClick={props.toggle}>{props.on ? "Hide" : "Show"} Menu </button>
-                <nav style={{display: props.on ? "block" : "none"}}>
-                    <h4>Signed in as Coder123</h4>
-                    <a>Your Profile</a>
-                    <a>Your Repositories</a>
-                    <a>Your Stars</a>
-                    <a>Your Gists</a>
-                </nav>
-            </div>
-        )
+    return (
+        <Toggler render={
+            (on, toggle) =>(
+                    <div>
+                        <button onClick={toggle}>{on ? "Hide" : "Show"} Menu </button>
+                        <nav style={{display: on ? "block" : "none"}}>
+                            <h4>Signed in as Coder123</h4>
+                            <p>Your Profile</p>
+                            <p>Your Repositories</p>
+                            <p>Your Stars</p>
+                            <p>Your Gists</p>
+                        </nav>
+                    </div>
+                )
+        }/>
+    )
+        
 }
 
-const SuperchargedMenuComponent = withToggler(Menu)
-export default SuperchargedMenuComponent
+export default Menu

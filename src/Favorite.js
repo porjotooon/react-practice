@@ -1,21 +1,25 @@
-import React, {Component} from "react"
-import {withToggler} from "./HOCs/withToggler"
+import React from "react"
+import Toggler from "./Toggler"
 
-function Favorite(props){
-        return (
-            <div>
-                <h3>Click heart to favorite</h3>
-                <h1>
-                    <span 
-                        onClick={props.toggle}
-                        style = {{cursor: "pointer"}}
-                    >
-                        {props.on ? "❤️" : "♡"}
-                    </span>
-                </h1>
-            </div>
-        )
+function Favorite(){
+    return (
+        <Toggler render={
+            (on, toggle) =>(
+                    <div>
+                        <h3>Click heart to favorite</h3>
+                        <h1>
+                            <span 
+                                onClick={toggle}
+                                style = {{cursor: "pointer"}}
+                            >
+                                {on ? "❤️" : "♡"}
+                            </span>
+                        </h1>
+                    </div>
+                )
+        }/>
+    )
+        
 }
 
-const SuperchargedFavoriteComponent = withToggler(Favorite)
-export default SuperchargedFavoriteComponent
+export default Favorite
