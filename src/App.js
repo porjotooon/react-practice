@@ -1,13 +1,13 @@
 import React from "react"
-import Menu from "./Menu"
-import Favorite from "./Favorite"
+
+import Header from "./Header"
+import Button from "./Button"
 
 function App() {
     return (
         <div>
-            <Menu />
-            <hr />
-            <Favorite />
+            <Header />
+            <Button />
         </div>
     )
 }
