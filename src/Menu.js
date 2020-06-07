@@ -1,12 +1,11 @@
 import React, {Component} from "react"
 import {withToggler} from "./HOCs/withToggler"
 
-class Menu extends Component {    
-    render() {
+function Menu(props) {
         return (
             <div>
-                <button onClick={this.props.toggle}>{this.props.on ? "Hide" : "Show"} Menu </button>
-                <nav style={{display: this.props.on ? "block" : "none"}}>
+                <button onClick={props.toggle}>{props.on ? "Hide" : "Show"} Menu </button>
+                <nav style={{display: props.on ? "block" : "none"}}>
                     <h4>Signed in as Coder123</h4>
                     <a>Your Profile</a>
                     <a>Your Repositories</a>
@@ -14,8 +13,7 @@ class Menu extends Component {
                     <a>Your Gists</a>
                 </nav>
             </div>
-        ) 
-    }
+        )
 }
 
 const SuperchargedMenuComponent = withToggler(Menu)
