@@ -21,6 +21,7 @@ class Favorite extends Component {
                 <h1>
                     <span 
                         onClick={this.toggleFavorite}
+                        style = {{cursor: "pointer"}}
                     >
                         {this.state.isFavorited ? "❤️" : "♡"}
                     </span>

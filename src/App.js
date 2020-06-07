@@ -1,13 +1,15 @@
-import React from 'react'
+import React from "react"
+import Menu from "./Menu"
+import Favorite from "./Favorite"
 
-
-class App extends React.Component{
-render() {  
-  return (
-      <div>
-      </div>
-  )    
+function App() {
+    return (
+        <div>
+            <Menu />
+            <hr />
+            <Favorite />
+        </div>
+    )
 }
-}
 
-export default App;
+export default App
