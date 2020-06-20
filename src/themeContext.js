@@ -1,33 +1,40 @@
-import React, {Component} from "react"
-const {Provider, Consumer} = React.createContext()
+import React, { useState } from "react"
+const ThemeContext = React.createContext()
 
-/**
- * Challenge:
- * 1) Add state to hold the current theme
- * 2) Add a method for flipping the state between light and dark
- * 
- */
+// class ThemeContextProvider extends Component {
+//     state = {
+//         theme: "dark"
+//     }
+    
+//     toggleTheme = () => {
+//         this.setState(prevState => {
+//             return {
+//                 theme: prevState.theme === "light" ? "dark" : "light"
+//             }
+//         })
+//     }
+    
+//     render() {
+//         return (
+//             <ThemeContext.Provider value={{theme: this.state.theme, toggleTheme: this.toggleTheme}}>
+//                 {this.props.children}
+//             </ThemeContext.Provider>
+//         )
+//     }
+// }
 
-class ThemeContextProvider extends Component {
-    state = {
-        theme: "dark"
+function ThemeContextProvider(props){
+    const [ theme, setTheme ] = useState("dark")
+
+    function toggleTheme() {
+        setTheme(prevTheme => prevTheme === "dark" ? "light" : "dark")
     }
-    
-    toggleTheme = () => {
-        this.setState(prevState => {
-            return {
-                theme: prevState.theme === "light" ? "dark" : "light"
-            }
-        })
-    }
-    
-    render() {
-        return (
-            <Provider value={{theme: this.state.theme, toggleTheme: this.toggleTheme}}>
-                {this.props.children}
-            </Provider>
-        )
-    }
+
+    return (
+        <ThemeContext.Provider value={{theme, toggleTheme}}>
+            {props.children}
+        </ThemeContext.Provider>
+    )
 }
 
-export {ThemeContextProvider, Consumer as ThemeContextConsumer}
+export {ThemeContextProvider, ThemeContext}
