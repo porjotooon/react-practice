@@ -1,24 +1,14 @@
-import React, {useState} from "react"
+import React from "react"
 
+import Header from "./Header"
+import Button from "./Button"
 
-const App = () => {
-    const [ count, setCount ] = useState(0)
-
-    function increment(){
-        setCount(prevCount => prevCount + 1)
-    }
-
-    function deccrement(){
-        setCount(prevCount => prevCount - 1)
-    }
-
+function App() {
     return (
-            <div>
-                <h1>{ count }</h1>
-                <button onClick={increment}>Increase</button>
-                <br></br>
-                <button onClick={deccrement}>Decrease</button>
-            </div>        
+        <div>
+            <Header />
+            <Button />
+        </div>
     )
 }
 
